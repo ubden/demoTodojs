@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+
+		/* V2 Requirements */
+		// It should have a function to display todos
+		var todos = ['todo 1', 'todo 2', 'todo 3'];
+
+		function displayTodos() {
+			console.log('My Todos: ', todos);
+		}
+
+		// It should have a function to add new todos
+		function addTodo(todo) {
+			todos.push(todo);
+			displayTodos();
+		}
+
+		// It should have a function to change a todo
+		function changeTodo(position, newValue) {
+			todos[position] = newValue;
+			displayTodos();
+		}
+
+		// It should have a function to delete a todo
+		function deleteTodo(position) {
+			todos.splice(position, 1);
+			displayTodos();
+		}
+
+	</script>
+</body>
+</html>
