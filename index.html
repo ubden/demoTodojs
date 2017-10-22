@@ -3,10 +3,27 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Todo List JS App</title>
+	
+	<!-- Stylesheets -->
+	<link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
+	<link rel="stylesheet" href="css/normalize.css">
+	<link rel="stylesheet" href="css/todo.css">
 
-	<script src="todo.js"></script>
 </head>
 <body>
-	
+	<div class="wrapper">
+		<header>
+			<h1>Todo List</h1>
+		</header>
+		<main class="app">
+			<!-- V7 Requirements -->
+			<!-- There should be a "Display Todos" button and a "Toggle All" button -->
+			<button id="displayTodosBtn">Display Todos</button>
+			<button  id="toggleAllBtn">Toggle All</button>
+		</main>
+	</div>
+
+	<!-- App JS -->
+	<script src="todo.js"></script>
 </body>
 </html>

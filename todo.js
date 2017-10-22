@@ -1,4 +1,4 @@
-// V6
+// V7
 var todoList = {
 	todos: [],
 	displayTodos: function() {
@@ -35,8 +35,6 @@ var todoList = {
 		todo.completed = !todo.completed;
 		this.displayTodos();
 	},
-	// .toggleAll: if everything is true, make everything false
-	// .toggle All: otherwise, make everything true
 	toggleAll: function() {
 		var totalTodos = this.todos.length;
 		var completedTodos = 0;
@@ -59,3 +57,14 @@ var todoList = {
 		this.displayTodos();
 	}
 };
+
+// Clicking "Display Todos" should run todoList.displayTodos method
+var displayTodosButton = document.getElementById('displayTodosBtn');
+displayTodosButton.addEventListener('click', function() {
+	todoList.displayTodos();
+});
+// Clicking "Toggle All" should run todoList.toggleAll method
+var toggleAllButton = document.getElementById('toggleAllBtn');
+toggleAllButton.addEventListener('click', function() {
+	todoList.toggleAll();
+});
