@@ -16,31 +16,32 @@
 			<h1>Todo List</h1>
 		</header>
 		<main class="app">
-			<button onclick="handlers.displayTodos()">Display Todos</button>
 			<button onclick="handlers.toggleAll()">Toggle All</button>
 
-			<!-- V8 Requirements -->
-			<!-- It should have working controls for .addTodo -->
+			<!-- V9 Requirements -->
+			<!-- There should be an li element for every todo -->
 			<div>
 				<input type="text" id="addTodoTextInput" placeholder="New Todo Text">
 				<button onclick="handlers.addTodo()">Add</button>
 			</div>
-			<!-- It should have working controls for .changeTodo -->
+
 			<div>
 				<input type="number" id="changeTodoPositionInput" placeholder="ID of Todo to Change">
 				<input type="text" id="changeTodoTextInput" placeholder="New Todo Text">
 				<button onclick="handlers.changeTodo()">Change Todo</button>
 			</div>
-			<!-- It should have working controls for .deleteTodo -->
+
 			<div>
 				<input type="number" id="deleteTodoPositionInput" placeholder="ID of Todo to Delete">
 				<button onclick="handlers.deleteTodo()">Delete Todo</button>
 			</div>
-			<!-- It should have working controls for .toggleCompleted -->
+
 			<div>
 				<input type="number" id="toggleTodoPositionInput" placeholder="ID of Todo to Toggle">
 				<button onclick="handlers.toggleTodo()">Toggle Completed</button>
 			</div>
+
+			<ul></ul>
 		</main>
 	</div>
 
