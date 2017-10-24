@@ -1,4 +1,4 @@
-// V9
+// V10
 var todoList = {
 	todos: [],
 	addTodo: function(todoText) { 
@@ -54,10 +54,8 @@ var handlers = {
 		changeTodoTextInput.value = null;
 		view.displayTodos();
 	},
-	deleteTodo: function() {
-		var deleteTodoPositionInput = document.getElementById('deleteTodoPositionInput');
-		todoList.deleteTodo(deleteTodoPositionInput.valueAsNumber);
-		deleteTodoPositionInput.value = null;
+	deleteTodo: function(position) {
+		todoList.deleteTodo(position);
 		view.displayTodos();
 	},
 	toggleTodo: function() {
@@ -72,9 +70,8 @@ var handlers = {
 	}
 };
 
-// Each li element should contain .todoText
-// Each li element should show .completed
-
+// V10 Requirements
+// Clicking delete should update todoList.todos and the DOM
 var view = {
 	displayTodos: function() {
 		var todosUl = document.querySelector('ul');
@@ -90,8 +87,31 @@ var view = {
 				todoTextWithCompletion = '[ ] ' + todo.todoText;
 			}
 
+			todoLi.id = i;
 			todoLi.textContent = todoTextWithCompletion;
+			todoLi.appendChild(this.createDeleteButton());
 			todosUl.appendChild(todoLi);
 		}
+	},
+	createDeleteButton: function() {
+		var deleteButton = document.createElement('button');
+		deleteButton.textContent = 'Delete';
+		deleteButton.className = 'deleteButton';
+		return deleteButton;
+	},
+	setupEventListeners: function() {
+		var todosUl = document.querySelector('ul');
+
+		todosUl.addEventListener('click', function(event) {
+			// Get the element that was clicked on
+			var elementClicked = event.target;
+
+			// Check if element is deleteButton
+			if(elementClicked.className === 'deleteButton') {
+				handlers.deleteTodo(parseInt(elementClicked.parentNode.id));
+			}
+		});
 	}
 };
+
+view.setupEventListeners();
